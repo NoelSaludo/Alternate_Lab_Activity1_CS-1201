@@ -25,7 +25,7 @@ def stopTimerOnInput():
     global stopTimer
     while True:
         if msvcrt.kbhit():
-            if msvcrt.getch() == b'\r':  # b'\r' is the Enter key in bytes
+            if msvcrt.getch() == b'\r':  
                 stopTimer = True
                 break
 def showRentalTimes():
@@ -142,7 +142,7 @@ def RentComputer():
             input("Press any key to continue...")
             continue
         localUsers[CurrentUser]["balance"] -= price
-        timerThread = threading.Thread(target=timer, args=(rentedTime,))
+        timerThread = threading.Thread(target=timer, args=(rentedTime))
         timerThread.start()
         stopTimerOnInput()
         break
@@ -151,7 +151,6 @@ def TopUpBalance():
     os.system("cls")
     while True:
         print("Top up balance")
-        print("Enter 0 to go back")
         print(f"Your current balance is {localUsers[CurrentUser]['balance']}")
         amount = input("Enter amount to top up: ")
         if not amount:
