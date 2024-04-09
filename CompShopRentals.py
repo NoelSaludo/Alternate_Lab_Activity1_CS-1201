@@ -30,8 +30,8 @@ def stopTimerOnInput():
                 break
 def showRentalTimes():
     print("Rental Times")
-    for key in rentalTimes:
-        print(key, ":", rentalTimes[key]["Price"])
+    for i, key in enumerate(rentalTimes):
+        print(f"{i+1}. {key} - ${rentalTimes[key]['Price']}")
 def register():
     while True:
         print("Register")
